@@ -85,6 +85,8 @@ var createRoboHydraServer = require('robohydra').createRoboHydraServer;
     server.on('error', function (e) {
         if (e.code === 'EADDRINUSE') {
             console.error("Couldn't listen in port " + port + ", aborting.");
+        } else {
+            console.error("Unexpected error: " + e.message);
         }
     });
     server.listen(port, function() {
